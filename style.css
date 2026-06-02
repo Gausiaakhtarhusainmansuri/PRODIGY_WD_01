@@ -1,0 +1,130 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+    font-family: "Segoe UI", sans-serif;
+}
+
+/* NAVBAR */
+#navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: 18px 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    background: rgba(255, 255, 255, 0.06);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+
+    transition: 0.4s;
+    z-index: 1000;
+}
+
+/* Scroll effect */
+#navbar.scrolled {
+    background: #0b0b0b;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+/* Logo */
+.logo {
+    font-size: 22px;
+    font-weight: bold;
+    color: #00e5ff;
+    letter-spacing: 1px;
+}
+
+/* LINKS */
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: white;
+    font-size: 15px;
+    position: relative;
+    padding: 6px 0;
+    transition: 0.3s;
+}
+
+/* glowing hover */
+.nav-links a:hover {
+    color: #00e5ff;
+    transform: translateY(-2px);
+}
+
+/* animated underline */
+.nav-links a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+    width: 0%;
+    height: 2px;
+    background: linear-gradient(90deg, #00e5ff, #7c4dff);
+    transition: 0.3s;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+/* ACTIVE LINK */
+.nav-links a.active {
+    color: #00e5ff;
+}
+
+/* SECTIONS */
+.section {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 60px;
+    font-weight: bold;
+    color: white;
+}
+
+/* backgrounds */
+#home { background: linear-gradient(135deg,#0f2027,#203a43,#2c5364); }
+#about { background: linear-gradient(135deg,#141e30,#243b55); }
+#services { background: linear-gradient(135deg,#000428,#004e92); }
+#work { background: linear-gradient(135deg,#1c1c1c,#434343); }
+#contact { background: linear-gradient(135deg,#0f0c29,#302b63,#24243e); }
+
+/* MOBILE */
+.menu-toggle {
+    display: none;
+    font-size: 28px;
+    color: white;
+    cursor: pointer;
+}
+
+/* responsive */
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: block;
+    }
+
+    .nav-links {
+        position: absolute;
+        top: 70px;
+        right: 20px;
+        flex-direction: column;
+        background: rgba(0,0,0,0.9);
+        padding: 20px;
+        border-radius: 10px;
+        display: none;
+    }
+
+    .nav-links.show {
+        display: flex;
+    }
+}
